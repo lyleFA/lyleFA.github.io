@@ -1,13 +1,13 @@
 <h1>A very professional mock up bot</h1>
-
+<h3>You are Tweeting as: @LeeAndersonMP_</h3>
 <div>
     <div>
-        <input class="tweet-field" type="text" placeholder="Your awful tweet goes here" />
-        <button>Send</button>
+        <input class="tweet-field" type="text" placeholder="Your tweet goes here" />
+        <button onclick="sendTweet()">Send</button>
     </div>
     <br>
     <div class="tweet-area">
-        <div>
+        <div class="your-tweets">
             <h3>Your tweets</h3>
         </div>
         <div class="bot-response">
@@ -16,7 +16,41 @@
     </div>
 </div>
 
+<script>
+    var listOfTriggers = [
+        'cost of living',
+        'weetabix',
+        'wheat biscuits',
+        'food banks',
+        'save money',
+        'breakfast'
+    ]
 
+    document.querySelector('.tweet-field').addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+            sendTweet();
+        }
+    });
+
+    function sendTweet() {
+        var tweet = document.querySelector('.tweet-field').value;
+        var tweetElement = document.createElement('p');
+        tweetElement.innerHTML = tweet;
+        document.querySelector('.your-tweets').appendChild(tweetElement);
+        document.querySelector('.tweet-field').value = '';
+
+        for (let i = 0; i < listOfTriggers.length; i++) {
+            console.log(tweet);
+            console.log(listOfTriggers[i])
+            if (tweet.includes(listOfTriggers[i])) {
+                var botTweetElement = document.createElement('p');
+                botTweetElement.innerHTML = 'According to @LeeAndersonMP_ having a cheap breakfast is more important than a balanced breakfast. Yet to be confirmed if this is for adults or for growing children too. #balancedbreakfast #30pbreakfast #whereisthefruitandveg #mpcostoflibingadvice. Think that’s the worst thing our politicians have said? Think again and visit <a href="https://docs.google.com/presentation/d/1AFCeB_cECa8cyfxyX4ydmKjeDcbATV0x3o0tNHsemOE/edit#slide=id.p" target="_blank">MPCostOfLivingAdvice.com</a>';
+                document.querySelector('.bot-response').appendChild(botTweetElement);
+                break;
+            }
+        }
+    }
+</script>
 
 <style>
 .tweet-field {
@@ -32,6 +66,7 @@
     border: 2px solid black;
     height: 500px;
     width: 500px;
+    padding: 10px;
 }
 
 /* .bot-response {
