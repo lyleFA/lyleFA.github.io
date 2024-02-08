@@ -35,7 +35,7 @@
     function sendTweet() {
         var tweet = document.querySelector('.tweet-field').value;
         var tweetElement = document.createElement('p');
-        tweetElement.innerHTML = tweet;
+        tweetElement.innerHTML = '<strong>@LeeAndersonMP_:</strong> ' +  tweet;
         document.querySelector('.your-tweets').appendChild(tweetElement);
         document.querySelector('.tweet-field').value = '';
 
@@ -44,7 +44,7 @@
             console.log(listOfTriggers[i])
             if (tweet.includes(listOfTriggers[i])) {
                 var botTweetElement = document.createElement('p');
-                botTweetElement.innerHTML = 'According to @LeeAndersonMP_ having a cheap breakfast is more important than a balanced breakfast. Yet to be confirmed if this is for adults or for growing children too. #balancedbreakfast #30pbreakfast #whereisthefruitandveg #mpcostoflibingadvice. Think that’s the worst thing our politicians have said? Think again and visit <a href="https://docs.google.com/presentation/d/1AFCeB_cECa8cyfxyX4ydmKjeDcbATV0x3o0tNHsemOE/edit#slide=id.p" target="_blank">MPCostOfLivingAdvice.com</a>';
+                botTweetElement.innerHTML = '<strong>@UnnamedBot:</strong> According to @LeeAndersonMP_ having a cheap breakfast is more important than a balanced breakfast. Yet to be confirmed if this is for adults or for growing children too. #balancedbreakfast #30pbreakfast #whereisthefruitandveg #mpcostoflibingadvice. Think that’s the worst thing our politicians have said? Think again and visit <a href="https://docs.google.com/presentation/d/1AFCeB_cECa8cyfxyX4ydmKjeDcbATV0x3o0tNHsemOE/edit#slide=id.p" target="_blank">MPCostOfLivingAdvice.com</a>';
                 document.querySelector('.bot-response').appendChild(botTweetElement);
                 break;
             }
